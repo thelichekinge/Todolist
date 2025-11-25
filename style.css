@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgb(185, 191, 233);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#nouvelleTache {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#nouvelleTache:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#ajouterBtn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#ajouterBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#ajouterBtn:active {
+    transform: translateY(0);
+}
+
+/* Filtres */
+.filtres {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.filtre-btn {
+    padding: 10px 20px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+}
+
+.filtre-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.filtre-btn.actif {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* Liste des tâches */
+#listeTaches {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.tache {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    animation: slideIn 0.4s ease-out;
+    border: 2px solid transparent;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.tache:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+    border-color: #667eea;
+}
+
+.tache.completee {
+    opacity: 0.7;
+    background: #f1f3f5;
+}
+
+.tache.completee .texte-tache {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #667eea;
+    flex-shrink: 0;
+}
+
+.texte-tache {
+    flex: 1;
+    color: #333;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.btn-supprimer {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.btn-supprimer:hover {
+    background: #ee5a6f;
+    transform: scale(1.05);
+}
+
+.btn-supprimer:active {
+    transform: scale(0.95);
+}
+
+/* Message vide */
+.vide {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 40px 20px;
+    display: none;
+}
+
+/* Statistiques */
+.stats {
+    display: none;
+    justify-content: space-around;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    font-size: 14px;
+    color: #666;
+    margin-top: 25px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-nombre {
+    font-size: 28px;
+    font-weight: 700;
+    color: #667eea;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-item span:last-child {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    #ajouterBtn {
+        width: 100%;
+    }
+
+    .filtres {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .filtre-btn {
+        flex: 1;
+        min-width: 90px;
+    }
+
+    .tache {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    .texte-tache {
+        font-size: 15px;
+    }
+
+    .btn-supprimer {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .stats {
+        padding: 15px;
+    }
+
+    .stat-nombre {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>To Do list</h1>
+    
+    <div class="input-group">
+        <input type="text" id="nouvelleTache" placeholder="Entrez une nouvelle tâche..." autocomplete="off">
+        <button id="ajouterBtn">Ajouter</button>
+    </div>
+
+    <div class="filtres">
+        <button class="filtre-btn actif" data-filtre="toutes">Toutes</button>
+        <button class="filtre-btn" data-filtre="actives">Actives</button>
+        <button class="filtre-btn" data-filtre="completees">Complétées</button>
+    </div>
+
+    <ul id="listeTaches"></ul>
+    
+    <p id="messageVide" class="vide">Aucune tâche pour le moment. Ajoutez-en une !</p>
+
+    <div class="stats" id="stats">
+        <div class="stat-item">
+            <span class="stat-nombre" id="totalTaches">0</span>
+            <span>Total</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-nombre" id="tachesActives">0</span>
+            <span>Actives</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-nombre" id="tachesCompletees">0</span>
+            <span>Complétées</span>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
